@@ -12,7 +12,7 @@ public class WebsiteReader {
     void readWebsites(WebsURL websURL, Map<File, String> files) throws IOException {
         for (int i = 0; i < websURL.getWebUrls().length; i++) {
             readWeb(websURL.getWebUrls()[i], i + ".html");
-            files.put(new File(i + ".html"), websURL.getWebUrls()[i]);
+            files.put(new File(i+1 + ".html"), websURL.getWebUrls()[i]);
         }
     }
 
@@ -20,8 +20,8 @@ public class WebsiteReader {
         URL web = new URL(link);
 
         BufferedReader in = new BufferedReader(new InputStreamReader(web.openStream()));
-        String input;
         StringBuilder builder = new StringBuilder();
+        String input;
         while ((input = in.readLine()) != null) {
             builder.append(input);
             builder.append(System.lineSeparator());

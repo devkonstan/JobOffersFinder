@@ -13,16 +13,16 @@ import java.util.Map;
 public class Reader {
 
     private final WebsURL websURL;
-    private final Map<File, String> fileList;
-    private final WebsiteScanner websiteScanner;
     private final WebsiteReader websiteReader;
+    private final WebsiteScanner websiteScanner;
+    private final Map<File, String> fileList;
 
     @Autowired
     public Reader(WebsURL websURL, WebsiteScanner websiteScanner, WebsiteReader websiteReader) {
+        this.websiteReader = websiteReader;
+        this.websiteScanner = websiteScanner;
         this.websURL = websURL;
         fileList = new HashMap<>();
-        this.websiteScanner = websiteScanner;
-        this.websiteReader = websiteReader;
     }
 
     @PostConstruct
